@@ -24,7 +24,8 @@ export default {
   },
 
   env: {
-		corbadoProjectId: process.env.CORBADO_PROJECT_ID
+		corbadoProjectId: process.env.CORBADO_PROJECT_ID,
+    apiUrl: process.env.API_URL
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

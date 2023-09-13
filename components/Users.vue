@@ -52,7 +52,7 @@ export default {
     async fetchUsers () {
       this.loading = true
       try {
-        const { httpStatusCode, data } = await this.$axios.$get(`http://159.69.150.214:3001/users?pageSize=${PAGE_SIZE}`, { headers: this.reqHeaders })
+        const { httpStatusCode, data } = await this.$axios.$get(`${process.env.apiUrl}/users?pageSize=${PAGE_SIZE}`, { headers: this.reqHeaders })
         this.loading = false
         if (httpStatusCode === 200) {
           this.users = data.users
@@ -68,7 +68,7 @@ export default {
     async loadMore () {
       this.loading = true
       try {
-        const { httpStatusCode, data } = await this.$axios.$get(`http://159.69.150.214:3001/users?pageSize=${PAGE_SIZE}&page=${this.page + 1}`, { headers: this.reqHeaders })
+        const { httpStatusCode, data } = await this.$axios.$get(`${process.env.apiUrl}/users?pageSize=${PAGE_SIZE}&page=${this.page + 1}`, { headers: this.reqHeaders })
         this.loading = false
         if (httpStatusCode === 200) {
           this.users = [
