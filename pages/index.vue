@@ -1,7 +1,8 @@
 <template>
-  <div class="profile">
+  <div class="container">
     <User v-if="user" />
     <Logout />
+    <Users v-if="user" />
     <div v-if="!user">
       <nuxt-link to="/login">login</nuxt-link>
     </div>
@@ -11,11 +12,13 @@
 <script>
 import { mapGetters } from 'vuex'
 import User from '~/components/User'
+import Users from '~/components/Users'
 import Logout from '~/components/Logout'
 export default {
   middleware: 'authenticated',
   components: {
     User,
+    Users,
     Logout
   },
   computed: {
@@ -34,3 +37,11 @@ export default {
   }
 }
 </script>
+
+<style lang="css">
+.container {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+</style>
